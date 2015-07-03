@@ -3,6 +3,7 @@
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use AdenFraser\LaravelBulkCommands\BulkMigrations;
 
 class BulkMigrationsCommand {
     
@@ -22,10 +23,17 @@ class BulkMigrationsCommand {
     protected $description = 'Performs a pre-defined list of migrations as a bulk.';
 
     /**
+     * BulkMigrations
+     */
+    protected $bulkMigrations;
+
+    /**
      * __construct
      */
-    public function __construct()
+    public function __construct(BulkMigrations $bulkMigrations)
     {
+        $this->bulkMigrations = $bulkMigrations;
+
         parent::__construct();
     }
 
@@ -36,7 +44,9 @@ class BulkMigrationsCommand {
      */
     public function fire()
     {
-        
+        $this->bulkMigrations->fire();
+
+        $this->call('migrate');
     }
 
     /**

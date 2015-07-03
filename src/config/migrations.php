@@ -24,9 +24,13 @@ return array(
     */
     'paths' => array(
         
-        'database/migrations/development',
-        'database/migrations/development',
-        'database/migrations/development',
+        /* 
+         * Examples:
+        'database/migrations/foo',
+        'database/migrations/bar',
+        'storage/base-migrations',
+        'database/search-migrations'
+        */
 
     ),
 
@@ -39,10 +43,13 @@ return array(
     |
     */
     'packages' => array(
-
+        
+        /* 
+         * Examples:
         'coandacms/coanda-core'),
         'coandacms/coanda-web-forms'),
         'coandacms/content-sign-off'),
+        */
 
     ),
 

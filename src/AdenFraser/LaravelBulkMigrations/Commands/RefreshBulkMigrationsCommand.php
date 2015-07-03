@@ -22,10 +22,17 @@ class RefreshBulkMigrationsCommand {
     protected $description = 'Rolls back all migrations and then re-runs the pre-defined list of migrations in bulk.';
 
     /**
+     * BulkMigrations
+     */
+    protected $bulkMigrations;
+
+    /**
      * __construct
      */
-    public function __construct()
+    public function __construct(BulkMigrations $bulkMigrations)
     {
+        $this->bulkMigrations = $bulkMigrations;
+
         parent::__construct();
     }
 
@@ -36,7 +43,11 @@ class RefreshBulkMigrationsCommand {
      */
     public function fire()
     {
-        
+        $this->call('migrate:reset');
+
+        $this->bulkMigrations->fire();
+
+        $this->call('migrate');
     }
 
     /**

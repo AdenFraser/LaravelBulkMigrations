@@ -28,8 +28,6 @@ class LaravelBulkMigrationsServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        // Need to register configuration
-
         $this->app['bulkmigrations'] = $this->app->share(function($app)
         {
             return new \AdenFraser\LaravelBulkMigrations\Commands\BulkMigrationsCommand($app);
