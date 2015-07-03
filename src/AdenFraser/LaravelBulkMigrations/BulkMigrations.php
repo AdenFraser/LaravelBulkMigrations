@@ -42,60 +42,75 @@ class BulkMigrations {
      */
     public function migrationList()
     {
-        $migrationsList = Config::get('migrations');
-
-        // Run through each
-        // check if the directory or package exists
-        // if it doesn,t throw exception:
-        //      throw new Exceptions\InvalidMigrationException();
-        // return a finalized array
-
-        return $migrationsList;
+        return Config::get('migrations');
     }
 
+    /**
+     * Check if we have Migrations to Run
+     * 
+     * @return boolean
+     */
     protected function hasMigrations()
     {
-
+        // TO DO:
         // check if we have migrations that can be run
         // return true or false
-
+        return true;
     }
 
+    /**
+     * Run the Migrations Configuration File
+     * 
+     * @return
+     */
     protected function runMigrations()
     {
+        foreach ($this->migrations as $migrationType => $migrationsList) {
+            if ($migrationType != 'package' && $migrationType != 'path') {
+                throw new Exceptions\InvalidMigrationConfigurationException();
+            }
 
-        // loop migrations
-        
+            $this->runMigrationsList($migrationType, $migrationsList);
+        }
     }
 
-    protected function runSingleMigration()
+    /**
+     * Loops through the Migrations List
+     * 
+     * @param  string $migrationType 
+     * @param  array $migrations    
+     * 
+     * @return
+     */
+    protected function runMigrationsList($migrationType, $migrations)
     {
-
-        // If migration is a package {
-        // 
-        // } else if Migrations is a path {
-        // 
-        // } else {
-        // 
-        //  // Throw exception to inform user they have 
-        //  // migrations outside of the array format
-        //  
-        // }
-        
+        foreach ($migrations as $migration) {
+            $this->runSingleMigration($migrationType, $migration);
+        }
     }
 
-    protected function runPathMigration()
+    /**
+     * Calls a single Migration to run
+     * 
+     * @param  string $type      
+     * @param  string $migration 
+     * @return
+     */
+    protected function runSingleMigration($type, $migration)
     {
-
-        // Run path migration
-        
+        $this->call('migrate', ["--$type" => $migration]);
     }
 
-    protected function runVendorMigration()
+    /**
+     * Checks the validity of a Migration
+     * 
+     * @return boolean
+     */
+    protected function checkMigration()
     {
-
-        // Run vendor migration
-        
+        // To Do:
+        // Check the validity of a defined migration
+        return true;
     }
 
 }

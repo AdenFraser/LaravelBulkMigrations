@@ -22,7 +22,7 @@ return array(
     | Here you can define a list of paths to check for migrations:
     |
     */
-    'paths' => array(
+    'path' => array(
         
         /* 
          * Examples:
@@ -42,7 +42,7 @@ return array(
     | Here you can define a list of packages to check for migrations:
     |
     */
-    'packages' => array(
+    'package' => array(
         
         /* 
          * Examples:
