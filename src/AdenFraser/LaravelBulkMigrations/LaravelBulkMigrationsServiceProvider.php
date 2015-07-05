@@ -30,7 +30,7 @@ class LaravelBulkMigrationsServiceProvider extends ServiceProvider {
     {
         $this->app['bulkmigrations'] = $this->app->share(function($app)
         {
-            return new \AdenFraser\LaravelBulkMigrations\Commands\BulkMigrationsCommand($app);
+            //return new Commands\BulkMigrationsCommand($app);
         });
 
         $this->commands('bulkmigrations');

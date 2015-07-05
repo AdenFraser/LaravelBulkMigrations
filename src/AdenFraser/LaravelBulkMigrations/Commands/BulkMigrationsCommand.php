@@ -1,9 +1,9 @@
-<?php namespace AdenFraser\LaravelBulkCommands\Commands;
+<?php namespace AdenFraser\LaravelBulkMigrations;\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use AdenFraser\LaravelBulkCommands\BulkMigrations;
+use AdenFraser\LaravelBulkMigrations\BulkMigrations;
 
 class BulkMigrationsCommand {
     

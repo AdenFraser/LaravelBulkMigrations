@@ -1,3 +1,3 @@
-<?php namespace AdenFraser\LaravelBulkCommands\Exceptions;
+<?php namespace AdenFraser\LaravelBulkMigrations\Exceptions;
 
 class EmptyMigrationsListException extends \Exception {}
