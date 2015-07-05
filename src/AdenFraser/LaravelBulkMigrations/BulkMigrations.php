@@ -28,7 +28,7 @@ class BulkMigrations {
     {
         if ($this->hasMigrations()) {
 
-            $this->bulkMigrations->runMigrations();
+            $this->runMigrations();
 
         } else {
             throw new Exceptions\EmptyMigrationsListException();
@@ -40,9 +40,9 @@ class BulkMigrations {
      * 
      * @return array
      */
-    public function migrationList()
+    public function migrationsList()
     {
-        return Config::get('migrations');
+        return \Config::get('laravelbulkmigrations::migrations');
     }
 
     /**
@@ -98,7 +98,7 @@ class BulkMigrations {
      */
     protected function runSingleMigration($type, $migration)
     {
-        $this->call('migrate', ["--$type" => $migration]);
+        \Artisan::call('migrate', ["--{$type}" => $migration]);
     }
 
     /**

@@ -30,10 +30,17 @@ class LaravelBulkMigrationsServiceProvider extends ServiceProvider {
     {
         $this->app['bulkmigrations'] = $this->app->share(function($app)
         {
-            return new Commands\BulkMigrationsCommand($app);
+            return new Commands\BulkMigrationsCommand(new BulkMigrations());
         });
 
         $this->commands('bulkmigrations');
+
+        $this->app['refreshbulkmigrations'] = $this->app->share(function($app)
+        {
+            return new Commands\RefreshBulkMigrationsCommand(new BulkMigrations());
+        });
+
+        $this->commands('refreshbulkmigrations');
     }
 
     /**

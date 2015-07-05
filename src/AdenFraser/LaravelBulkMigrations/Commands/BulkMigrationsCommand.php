@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use AdenFraser\LaravelBulkMigrations\BulkMigrations;
 
-class BulkMigrationsCommand {
+class BulkMigrationsCommand extends Command {
     
     /**
      * Name of command, to be called with:
@@ -30,9 +30,9 @@ class BulkMigrationsCommand {
     /**
      * __construct
      */
-    public function __construct(BulkMigrations $bulkMigrations)
+    public function __construct()
     {
-        $this->bulkMigrations = $bulkMigrations;
+        $this->bulkMigrations = new \AdenFraser\LaravelBulkMigrations\BulkMigrations;
 
         parent::__construct();
     }

@@ -46,9 +46,9 @@ return array(
         
         /* 
          * Examples:
-        'coandacms/coanda-core'),
-        'coandacms/coanda-web-forms'),
-        'coandacms/content-sign-off'),
+        'coandacms/coanda-core',
+        'coandacms/coanda-web-forms',
+        'coandacms/content-sign-off',
         */
 
     ),
