@@ -98,7 +98,7 @@ class BulkMigrations {
      */
     protected function runSingleMigration($type, $migration)
     {
-        \Artisan::call('migrate', ["--{$type}" => $migration]);
+        \Artisan::call('migrate', ["--{$type}" => $migration], \Symfony\Component\Console\Output\Output);
     }
 
     /**
